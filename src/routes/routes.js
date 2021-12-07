@@ -5,6 +5,7 @@ const NoMatch = () => {
 	return <div>404</div>;
 };
 
+
 export const ROUTES = [
 	{
 		path: '/checkout',
