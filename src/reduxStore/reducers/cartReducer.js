@@ -27,13 +27,21 @@ const reducer = (state = initialState, action) => {
       orders: newArray
     }
 
-    // case actionTypes.DECREMENT_PRODUCT:
-
-    // return {}
+    case actionTypes.DECREMENT_PRODUCT:
+      const secondArray = decrementProduct(state.orders, action)
+    
+      return {
+        ...state,
+      orders: secondArray
+      }
 
     // case actionTypes.CALCULATE_TOTAL_CART_AMOUNT:
-    
-    // return {};
+    //   const totalPrice = cartTotalPrice(state.orders, action)
+      
+    // return {
+    //   ...state,
+    //   totalPrice: totalPrice
+    // };
 
     default:
       return state;
@@ -65,5 +73,19 @@ const incrementProducts = (orders, action) => {
 
   return newArray
 };
+
+const decrementProduct = (orders, action) => {
+  const decArray = orders.slice();
+  const productIndex = findProductIndex(decArray, action.payload.id)
+
+  if (productIndex !==-1 && orders[productIndex].quantity > 1) {
+    decArray[productIndex] = {
+      product: decArray[productIndex].product,
+      quantity: decArray[productIndex].quantity - 1
+    }} else if (productIndex !== -1) {
+      decArray.splice(productIndex, 1)
+    }
+    return decArray
+}
 
 export default reducer;
