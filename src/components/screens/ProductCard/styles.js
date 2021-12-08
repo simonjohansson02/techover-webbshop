@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) =>
       position: 'relative',
       height: '100%',
       width: '90%',
-      margin: 'auto'
-
+      margin: 'auto',
+      justifyContent: 'space-between',
     },
 		informationContainer: {
       position: 'relative',
@@ -43,8 +43,23 @@ const useStyles = makeStyles((theme) =>
     details:{},
 		title: {},
 		detailMargin: {},
-		buttons: {},
-    button: {}
+		buttons: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 'auto 20px'
+    },
+    button: {},
+    button__add: {
+      color: 'green'
+    },
+    button__remove: {
+      color: 'red'
+    },
+		divider: {
+			transform: 'translateY(-1px)',
+			width: '90%',
+			margin: 'auto'
+		}
 	})
 );
 

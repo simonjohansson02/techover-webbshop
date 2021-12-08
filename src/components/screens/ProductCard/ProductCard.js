@@ -1,36 +1,51 @@
 import { Typography, IconButton, Divider, Skeleton } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import useStyles from './styles';
-import { typography } from '@mui/system';
 
-const ProductCard = ({loading, title, price, image, id, description, category, raiting}) => {
+
+const ProductCard = ({loading, title, price, image, isLast, id, description, category, rating, onDecrement, onIncrement}) => {
   const classes = useStyles();
   return (
   <div className={classes.productCard}>
     <div className={classes.productCardFlex}>
       <div className={classes.informationContainer}>
         <div className={classes.info}>
-          <img className={classes.img} src={image} alt={title}/>
+          {loading ? (
+            <Skeleton variant="rect" width={65} height={92} style={{ marginRight: 20 }}  />
+          ) : (
+            <img className={classes.img} src={image} alt={title}/>
+          )}    
           <div className={classes.details}>
             <Typography variant="subtitle2">
-              <p className={`${classes.title} ${classes.detailMargin}`}>{title}
-              </p>
+            {loading ? (
+            <Skeleton variant="text" width={100} height={30}/>
+            ) : (
+            <p className={`${classes.title} ${classes.detailMargin}`}>{title}</p>
+            )}
             </Typography>
+            {loading ? (
+            <Skeleton variant="text" width={50} height={30}/>
+            ) : (
             <p className={classes.detailMargin}>{price} kr</p>
+            )}
           </div>
         </div>
       </div>
-
       <div className={classes.buttons}>
-        <IconButton aria-label="plus" onClick={() => {}}>
-          <AddIcon fontSize="large" className={classes.button}/>
+        <IconButton aria-label="plus"  onClick={onIncrement}>
+          <AddShoppingCartIcon  fontSize="small" className={`${classes.button} ${classes.button__add}`}/>
         </IconButton>
-        <IconButton aria-label="plus" onClick={() => {}}>
-          <RemoveIcon fontSize="large" className={classes.button}/>
+        <IconButton aria-label="plus" onClick={onDecrement}>
+          <DeleteIcon  fontSize="small" className={`${classes.button} ${classes.button__remove}`}/>
         </IconButton>
       </div>
     </div>
+    {!isLast && (
+				<div className={classes.divider}>
+					<Divider variant="middle" />
+				</div>
+			)}
   </div>
   )
 };
