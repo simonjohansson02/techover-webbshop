@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.RESET_CART:
 
     return {
+      ...state,
       totalPrice: 0,
       deliveryFee: 0, 
       productPrice: 0,
@@ -35,13 +36,14 @@ const reducer = (state = initialState, action) => {
       orders: secondArray
       }
 
-    // case actionTypes.CALCULATE_TOTAL_CART_AMOUNT:
-    //   const totalPrice = cartTotalPrice(state.orders, action)
+    case actionTypes.CALCULATE_TOTAL_CART_AMOUNT:
       
-    // return {
-    //   ...state,
-    //   totalPrice: totalPrice
-    // };
+    return {
+      ...state,
+      totalPrice: action.payload.totalPrice,
+      deliveryFee: action.payload.deliveryFee,
+      productPrice: action.payload.productPrice
+    };
 
     default:
       return state;
