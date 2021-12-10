@@ -6,14 +6,17 @@ import ProductCard from '../ProductCard/ProductCard';
 import { decrementProduct, incrementProduct } from '../../../reduxStore/actions';
 
 
-const Products = ({products, loading, error, onIncrement ,onDecrement}) => {
+const Products = ({products, loading, error, orders}) => {
 	const classes =useStyles();
 
 const rederProductCards = () => {
 	if (loading) return [1, 2, 3, 4, 5, 6 ,7 ,8 ,9, 10].map((d) => <ProductCard loading={loading} key={d} />);
-
+	
+	
 	const array=  products.map((item, i) => {
-			return <ProductCard {...item} Loading={loading} onIncrement={() => onIncrement(item)} onDecrement={() => onDecrement(item)} key={i} isLast={i === products.length - 1}/>
+		const order = orders.find((orders) => orders.product.id === item.id);
+		const quantity = order ? order.quantity : null;
+			return <ProductCard {...item} Loading={loading} quantity={quantity} key={i} isLast={i === products.length - 1}/>
 	})
 	return array
 }
@@ -40,8 +43,14 @@ const rederProductCards = () => {
 };
 
 const mapState = (state) => {
-	const {items, loading, error} = state.products;
-	return {products: items, loading, error};
+	const { items, loading, error } = state.products;
+	const { orders } = state.cart;
+	return {
+		products: items,
+		orders,
+		error,
+		loading
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {

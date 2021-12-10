@@ -2,10 +2,25 @@ import { Typography, IconButton, Divider, Skeleton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import useStyles from './styles';
+import RadioButtons from '../../RadioButtons/RadioButtons';
 
 
-const ProductCard = ({loading, title, price, image, isLast, id, description, category, rating, onDecrement, onIncrement}) => {
+const ProductCard = ({loading, title, price, image, isLast, id, description, category, rating, quantity}) => {
   const classes = useStyles();
+
+  const renderRadioButtons = () => {
+		const product = {
+			category,
+			description,
+			id,
+			image,
+			price,
+			rating,
+			title
+		};
+		return <RadioButtons product={product} quantity={quantity} />;
+  };
+
   return (
   <div className={classes.productCard}>
     <div className={classes.productCardFlex}>
@@ -33,12 +48,13 @@ const ProductCard = ({loading, title, price, image, isLast, id, description, cat
         </div>
       </div>
       <div className={classes.buttons}>
-        <IconButton aria-label="plus"  onClick={onIncrement}>
+      {renderRadioButtons()}
+        {/* <IconButton aria-label="plus"  onClick={onIncrement}>
           <AddShoppingCartIcon  fontSize="small" className={`${classes.button} ${classes.button__add}`}/>
         </IconButton>
         <IconButton aria-label="plus" onClick={onDecrement}>
           <DeleteIcon  fontSize="small" className={`${classes.button} ${classes.button__remove}`}/>
-        </IconButton>
+        </IconButton> */}
       </div>
     </div>
     {!isLast && (

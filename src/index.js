@@ -9,7 +9,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { mainTheme } from './style/material-themes';
 
 const store = configureStore();
-// console.log(store);
+
 
 ReactDOM.render(
 	<Provider store={store}>

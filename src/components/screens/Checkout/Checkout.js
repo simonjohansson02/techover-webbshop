@@ -3,18 +3,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import useStyles from './styles';
 import { resetCart } from '../../../reduxStore/actions/cartActions';
+import CartItems from '../../CartItems/CartItems'
 
 const Checkout = ({ cart, resetCart }) => {
 	const classes = useStyles();
+
+	const renderCartItems = () => {
+		return cart.orders.map((item, i) => <CartItems key={i} {...item} />);
+	};
+
 	return (
 		<div id="Checkout">
 			<Container maxWidth="sm">
 				<Typography variant="h1">Checkout</Typography>
-				{cart.orders.map((item, i) => (
-					<p key={i}>
-						{item.product.title} ------- {item.quantity}
-					</p>
-				))}
+				<Grid container spacing={2} justify="center">
+					<Grid item xs={12}>
+						{renderCartItems()}
+					</Grid>
+				</Grid>
 
 				<Button onClick={resetCart} variant="contained">
 					Reset cart
