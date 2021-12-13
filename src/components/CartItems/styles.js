@@ -17,11 +17,11 @@ const useStyles = makeStyles((theme) =>
 		},
 		chip: {
 			padding: '4px 12px',
-			background: 'linear-gradient(90deg, rgba(145,141,232,1) 0%, rgba(211,159,252,1) 100%)',
+			background: 'linear-gradient(90deg, rgb(0 196 255) 0%, rgb(111 128 252) 100%)',
 			width: 'fit-content',
-			borderRadius: 50,
+			borderRadius: 10,
 			color: '#ffffff',
-			fontWeight: 300
+			fontWeight: 500
 		},
 		img: {
 			width: 30,

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography, Container, Grid, Button } from '@mui/material';
+import { Typography, Container, Grid} from '@mui/material';
 import useStyles from './styles'
 import {connect} from 'react-redux'
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from '../../ProductCard/ProductCard';
 import { decrementProduct, incrementProduct } from '../../../reduxStore/actions';
 
 

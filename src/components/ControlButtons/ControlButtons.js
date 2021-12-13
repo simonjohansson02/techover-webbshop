@@ -1,5 +1,7 @@
 import useStyles from './styles';
 import { IconButton } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { connect } from 'react-redux';
@@ -13,7 +15,7 @@ const ControlButtons = ({ onIncrement, onDecrement, quantity, product }) => {
 
 	return (
 		<div className={classes.buttons}>
-			<IconButton aria-label="plus" onClick={() => onIncrement(product)}>
+			{/* <IconButton aria-label="plus" onClick={() => onIncrement(product)}>
 				<AddIcon fontSize="large" className={classes.button} />
 			</IconButton>
 			<div className={classes.quantity} style={showQuantityStyle}>
@@ -21,7 +23,18 @@ const ControlButtons = ({ onIncrement, onDecrement, quantity, product }) => {
 			</div>
 			<IconButton aria-label="minus" onClick={() => onDecrement(product)} disabled={disabled}>
 				<RemoveIcon fontSize="large" className={disabled ? classes.buttonDisabled : classes.button} />
-			</IconButton>
+			</IconButton> */}
+
+		<IconButton aria-label="plus" onClick={() => onIncrement(product)}>
+          <AddShoppingCartIcon  fontSize="large" className={classes.addButton}/>
+        </IconButton>
+				<div className={classes.quantity} style={showQuantityStyle}>
+				{quantity ? quantity : 0}
+				</div>
+        <IconButton aria-label="minus" onClick={() => onDecrement(product)} disabled={disabled}>
+          <RemoveShoppingCartIcon  fontSize="large" className={disabled ? classes.buttonDisabled : classes.removeButton} />
+        </IconButton>
+
 		</div>
 	);
 };

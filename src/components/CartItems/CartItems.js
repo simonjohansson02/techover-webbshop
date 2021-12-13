@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import { Typography, Grid } from '@mui/material';
-import RadioButtons from '../RadioButtons/RadioButtons';
+import ControlButtons from '../ControlButtons/ControlButtons';
 
 const CartItem = ({ product, quantity }) => {
 	const classes = useStyles();
@@ -15,7 +15,7 @@ const CartItem = ({ product, quantity }) => {
 					<div className={classes.chip}>{parseInt(product.price) * quantity} kr</div>
 				</Grid>
 				<Grid item xs={2}>
-					<RadioButtons product={product} quantity={quantity} />
+					<ControlButtons product={product} quantity={quantity} />
 				</Grid>
 			</Grid>
 		</div>

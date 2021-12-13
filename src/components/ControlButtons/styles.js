@@ -10,8 +10,11 @@ const useStyles = makeStyles((theme) =>
 			right: '0px',
 			height: '100%'
 		},
-		button: {
+		addButton: {
 			color: '#00c896'
+		},
+		removeButton: {
+			color: '#ff2e2e'
 		},
 		buttonDisabled: {
 			color: '#f7f8fa'
