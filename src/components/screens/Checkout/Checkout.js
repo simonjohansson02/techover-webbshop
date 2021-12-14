@@ -28,7 +28,7 @@ const Checkout = ({ cart, resetCart }) => {
 				<Grid item container xs={2}>
 					{/* Intentionally left empty */}
 				</Grid>
-				<Grid item xs={5} spacing={4} justify="center" >
+				<Grid container item xs={5} spacing={4} justify="center" style={{marginTop: 0}}>
 					<Container maxWidth="sm">
 						<Typography variant="h1">Checkout</Typography>
 						<Grid container spacing={2} justify="center">
