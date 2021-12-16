@@ -1,7 +1,7 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 const white = '#ffffff';
-const neonDark = '#2ad4c3';
+const neonDark = '#00c896';
 
 const primary = { light: neonDark, main: neonDark, dark: neonDark, contrastText: white };
 
