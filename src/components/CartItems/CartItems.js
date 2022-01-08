@@ -12,10 +12,10 @@ const CartItem = ({ product, quantity }) => {
 						{product.title}
 					</Typography>
 					<img className={classes.img} src={product.image} alt={product.title}></img>
-					<div className={classes.chip}>{parseInt(product.price) * quantity} kr</div>
+					<div className={classes.chip}>{(parseFloat(product.price) * quantity).toFixed(2)} kr</div>
 				</Grid>
 				<Grid item xs={2}>
-					<ControlButtons product={product} quantity={quantity} />
+					<ControlButtons product={product} quantity={quantity} column={true} />
 				</Grid>
 			</Grid>
 		</div>
