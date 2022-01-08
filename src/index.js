@@ -7,6 +7,7 @@ import configureStore from './reduxStore/configureStore';
 import { ThemeProvider } from '@mui/material/styles';
 import { mainTheme } from './style/material-themes';
 
+console.log(mainTheme);
 const store = configureStore();
 
 

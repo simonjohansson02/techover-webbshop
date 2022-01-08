@@ -4,7 +4,10 @@
 
 body {
 	margin: 0px;
-	background: rgb(248, 250, 253);
-	background: linear-gradient(90deg, #f3f6fa 0%, #e8f6f8 50%, #f4f7fd 100%);
-	color: #4e6f7d;
+	background: #cbddff;
+	color: #000000;
+	font-weight: 600;
+	/* background: linear-gradient(90deg, #f3f6fa 0%, #e8f6f8 50%, #f4f7fd 100%); */
+	/* color: #4e6f7d; */
 }
+/* rgb(248, 250, 253); */
