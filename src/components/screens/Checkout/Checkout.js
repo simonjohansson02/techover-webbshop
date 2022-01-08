@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import useStyles from './styles';
 import { resetCart } from '../../../reduxStore/actions/cartActions';
-import CartItems from '../../CartItems/CartItems'
+import CartItems from '../../CartItems/CartItems';
 
 const Checkout = ({ cart, resetCart }) => {
 	// const classes = useStyles();
@@ -15,12 +15,11 @@ const Checkout = ({ cart, resetCart }) => {
 	const cleanedCartItems = cart.orders.map((item) => {
 		return {
 			id: item.product.id,
-			quantity: item.quantity,
-		}
-	})
+			quantity: item.quantity
+		};
+	});
 
-
-	const stringifiedCartItems = JSON.stringify(cleanedCartItems)
+	const stringifiedCartItems = JSON.stringify(cleanedCartItems);
 
 	return (
 		<div id="Checkout">
@@ -28,7 +27,7 @@ const Checkout = ({ cart, resetCart }) => {
 				<Grid item container lg={2} md={1} xs={12}>
 					{/* Intentionally left empty */}
 				</Grid>
-				<Grid container item lg={5} md={6} xs={12} spacing={4} justify="center" style={{marginTop: 0}}>
+				<Grid container item lg={5} md={6} xs={12} spacing={4} justify="center" style={{ marginTop: 0 }}>
 					<Container maxWidth="sm">
 						<Typography variant="h1">Checkout</Typography>
 						<Grid container spacing={2} justify="center">
@@ -37,7 +36,15 @@ const Checkout = ({ cart, resetCart }) => {
 							</Grid>
 						</Grid>
 
-						<Button className='classes.resetButton' onClick={resetCart}  variant="contained" style={{background: 'linear-gradient(90deg, rgb(0 196 255) 0%, rgb(111 128 252) 100%)', fontWeight: 500}} >
+						<Button
+							className="classes.resetButton"
+							onClick={resetCart}
+							variant="contained"
+							style={{
+								background: 'linear-gradient(90deg, rgb(0 196 255) 0%, rgb(111 128 252) 100%)',
+								fontWeight: 500
+							}}
+						>
 							Reset cart
 						</Button>
 
@@ -66,7 +73,17 @@ const Checkout = ({ cart, resetCart }) => {
 				</Grid>
 				<Grid item container lg={3} md={4} xs={12}>
 					<Container maxWidth="sm">
-						<iframe title={"Klarna"} src={'http://localhost:3001/checkout/AAA-123?cartItems='+stringifiedCartItems} frameBorder={"none"} height="900" width="100%" style={{  }}/>
+						<iframe
+							title={'Klarna'}
+							src={
+								'https://klarna-checkout-simon.herokuapp.com/checkout/AAA-123?cartItems=' +
+								stringifiedCartItems
+							}
+							frameBorder={'none'}
+							height="900"
+							width="100%"
+							style={{}}
+						/>
 					</Container>
 				</Grid>
 				<Grid item container lg={2} md={1} xs={12}>
@@ -74,7 +91,6 @@ const Checkout = ({ cart, resetCart }) => {
 				</Grid>
 			</Grid>
 		</div>
-
 	);
 };
 
