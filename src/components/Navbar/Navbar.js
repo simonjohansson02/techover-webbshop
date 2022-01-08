@@ -12,10 +12,10 @@ const Navbar = (props) => {
 
 	return (
 		<Box sx={{ flexGrow: 1, marginBottom: "40px"}}>
-			<AppBar position="static">
+			<AppBar position="static" style={{backgroundColor: '#85afff'}}>
 				<Toolbar>
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						Techover
+						Random Things shop 
 					</Typography>
 					<Button onClick={() => history.push('/')} color="inherit">
 						Products

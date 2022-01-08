@@ -1,14 +1,15 @@
 import { createStyles, makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles((theme) =>
-	createStyles({
+const useStyles = makeStyles((theme) => {
+
+	return createStyles({
 		buttons: {
 			display: 'flex',
 			justifyContent: 'center',
 			alignItems: 'center',
-			flexDirection: 'column',
 			right: '0px',
-			height: '100%'
+			height: '100%',
+			marginRight: 20,
 		},
 		addButton: {
 			color: '#00c896'
@@ -30,6 +31,6 @@ const useStyles = makeStyles((theme) =>
 			height: 33
 		}
 	})
-);
+});
 
 export default useStyles;

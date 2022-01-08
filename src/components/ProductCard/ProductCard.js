@@ -1,9 +1,9 @@
-import { Typography, Divider, Skeleton } from '@mui/material';
-import useStyles from './styles';
+import { Typography, Skeleton} from '@mui/material';
+import useStyles from './test';
 import ControlButtons from '../ControlButtons/ControlButtons';
 
 
-const ProductCard = ({loading, title, price, image, isLast, id, description, category, rating, quantity}) => {
+const ProductCard = ({loading, title, price, image, id, description, category, rating, quantity}) => {
   const classes = useStyles();
 
   const renderControlButtons = () => {
@@ -22,38 +22,38 @@ const ProductCard = ({loading, title, price, image, isLast, id, description, cat
   return (
   <div className={classes.productCard}>
     <div className={classes.productCardFlex}>
-      <div className={classes.informationContainer}>
-        <div className={classes.info}>
-          {loading ? (
-            <Skeleton variant="rect" width={65} height={92} style={{ marginRight: 20 }}  />
+      <div className={classes.info}>
+        {loading ? (
+          <Skeleton variant="rect" width={125} height={160} style={{  }}  />
           ) : (
             <img className={classes.img} src={image} alt={title}/>
-          )}    
+        )}  
+        <div className={classes.informationContainer}>
           <div className={classes.details}>
             <Typography variant="subtitle2">
             {loading ? (
-            <Skeleton variant="text" width={100} height={30}/>
-            ) : (
-            <p className={`${classes.title} ${classes.detailMargin}`}>{title}</p>
+              <Skeleton variant="text" width={125} height={60}/>
+              ) : (
+                <p className={`${classes.title} ${classes.detailMargin}`}>{title}</p>
             )}
             </Typography>
             {loading ? (
-            <Skeleton variant="text" width={50} height={30}/>
-            ) : (
-            <p className={classes.detailMargin}>{price} kr</p>
+              <Skeleton variant="text" width={62.5} height={30} style={{margin: 'auto'}}/>
+              ) : (
+                <p className={classes.detailMargin}>{parseFloat(price).toFixed(2)} kr</p>
             )}
           </div>
         </div>
+        {loading ? (
+          <Skeleton variant="rect" width={150} height={40} style={{margin: 5}}  />
+          ) : (
+        <div className={classes.buttons}>
+        {renderControlButtons()}
+        </div>
+
+        )}  
       </div>
-      <div className={classes.buttons}>
-      {renderControlButtons()}
-      </div>
-    </div>
-    {!isLast && (
-				<div className={classes.divider}>
-					<Divider variant="middle" />
-				</div>
-			)}
+    </div> 
   </div>
   )
 };

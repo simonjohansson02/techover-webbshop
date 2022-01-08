@@ -6,20 +6,20 @@ export const resetCart = () => {
 
 export const calculateTotalCartAmount = () => {
 	return (dispatch, getState) => {
-    const DELIVERY_COST = 39;
+    const DELIVERY_COST = 109;
 		const state = getState();
     const { orders } = state.cart
 
     const reducer = (prev, curr) => {
 			const { product, quantity } = curr;
-			const price = parseInt(product.price);
+			const price = parseFloat(product.price).toFixed(2);
 			const sum = (prev += price * quantity);
 			return sum;
 		};
 
     const productPrice = orders.reduce(reducer, 0);
 
-    const deliveryFee = productPrice > 500 ? 0 : DELIVERY_COST
+    const deliveryFee = (productPrice) > 1000 ? 0 : DELIVERY_COST
 
     //const deliveryFee = productPrice > 500 || productPrice === 0 ? 0 : DELIVERY_COST;
 

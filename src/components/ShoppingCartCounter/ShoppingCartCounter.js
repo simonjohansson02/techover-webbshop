@@ -3,15 +3,15 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Countertops } from '@mui/icons-material';
 import { connect} from 'react-redux'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
     top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
+    // border: `2px solid ${theme.palette.background.paper}`,
     padding: '0 4px',
+    backgroundColor: '#cbddff',
   },
 }));
 
@@ -23,13 +23,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   React.useEffect(()=>{
     const numberOfItems = orders.reduce((prev, curr)=> prev+=curr.quantity, 0)
     setCount(numberOfItems)
-    console.log(orders);
+    // console.log(orders);
   },[orders])
 
 
   return (
     <IconButton onClick={onClick} aria-label="cart">
-      <StyledBadge badgeContent={count} color="secondary">
+      <StyledBadge badgeContent={count}>
         <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>
